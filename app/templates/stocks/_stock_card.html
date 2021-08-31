@@ -1,0 +1,25 @@
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-sm-3">
+            {% if stock.photo_filename %}
+                <div class="card-body">
+                <img class="card-img img-thumbnail" src="{{ stock.photo_filename|resize('200x200', format='png') }}" alt="Company logo">
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-sm-9">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ url_for('stocks.stock_info', ticker=stock.ticker) }}">{{ stock.ticker }}</a></h5>
+                <p class="card-text">${{ stock.name}}</p>
+                <p class="card-text">{{ stock.sector }}</p>
+            </div>
+        </div>
+    </div>
+            <div class="card-footer">
+            {% if current_user.is_administrator() %}
+            <a href="{{ url_for('stocks.edit_stock', ticker=stock.ticker) }}">
+                <span class="label label-danger">Edit [Admin]</span>
+            </a>
+        {% endif %}
+        </div>
+</div>

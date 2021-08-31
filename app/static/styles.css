@@ -1,0 +1,85 @@
+.profile-header {
+    margin-left: 280px;
+    min-height: 260px;
+}
+
+.profile-thumbnail {
+    position: absolute;
+}
+
+div.trade-tabs {
+    margin-top: 16px;
+}
+
+ul.trades {
+    border-top: 1px solid #e0e0e0;
+    list-style-type: none;
+    margin: 16px 0 0 0;
+    padding: 0;
+}
+
+div.trade-tabs ul.trades {
+    border-top: none;
+    margin: 0;
+}
+
+ul.trades li.trade {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 8px;
+}
+
+ul.trades li.trade:hover {
+    background-color: #f0f0f0;
+}
+
+div.trade-date {
+    float: right;
+}
+
+div.trade-user {
+    font-weight: bold;
+}
+
+div.trade-ticker {
+    font-weight: bold;
+}
+
+div.trade-price {
+    font-weight: bold;
+}
+
+div.trade-quantity {
+    font-weight: bold;
+}
+
+div.trade-thumbnail {
+    position: absolute;
+}
+
+div.trade-footer {
+    text-align: right;
+}
+
+div.trade-content {
+    margin-left: 48px;
+    min-height: 48px;
+}
+
+div.pagination {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    width: 100%;
+}
+
+.table.followers tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+table, thead, tr, tbody, th, td {
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}

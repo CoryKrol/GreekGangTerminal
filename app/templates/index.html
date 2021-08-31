@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form %}
+{% from 'bootstrap/nav.html' import render_nav_item %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% block title %}Greek Gang Terminal{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+    <div class="col">
+        {% block page_header %}
+            Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}NPC{% endif %}!
+        {% endblock %}
+    </div>
+    </div>
+    <div class="trade-tabs">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link{% if not show_followed %} active{% endif %}" href="{{ url_for('.show_all') }}">All trades</a>
+            </li>
+            {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link{% if show_followed %} active{% endif %}" href="{{ url_for('.show_followed') }}">Followed trader trades</a>
+                </li>
+            {% endif %}
+        </ul>
+        {% include 'trades/_trades.html' %}
+    </div>
+    {% if pagination %}
+        {{ render_pagination(pagination, endpoint='.index', prev='«', next='»', align='center') }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block title %}Greek Gang Terminal - Edit Trade{% endblock %}
+{% block page_header %}Edit Trade{% endblock %}
+{% block page_content %}
+    <div class="col-md-4">
+        {{ render_form(form) }}
+    </div>
+{% endblock %}

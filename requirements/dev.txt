@@ -1,0 +1,9 @@
+-r common.txt
+certifi
+chardet
+faker==8.11.0
+httpie
+idna
+Pygments
+requests
+urllib3

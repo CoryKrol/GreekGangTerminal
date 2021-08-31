@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% from "bootstrap/form.html" import render_form %}
+
+{% block title %}Greek Gang Terminal - {% if stock %}Edit Stock{% else %}Add Stock{% endif %}{% endblock %}
+
+{% block page_header %}
+    {% if stock %}Edit Stock - {{ stock.name }}{% else %}Add Stock{% endif %}
+{% endblock %}
+{% block page_content %}
+    <div class="col-md-4">
+        {{ render_form(form) }}
+    </div>
+{% endblock %}

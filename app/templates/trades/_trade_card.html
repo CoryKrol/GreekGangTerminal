@@ -1,0 +1,29 @@
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-sm-3">
+            {% if trade.stock.photo_filename %}
+                <div class="card-body">
+                <img class="card-img img-thumbnail" src="{{ trade.stock.photo_filename|resize('200x200', format='png') }}" alt="Company logo">
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-sm-9">
+            <div class="card-body">
+                <h5 class="card-title">Trade by <a href="{{ url_for('users.user_profile', username=trade.user.username) }}">{{ trade.user.username }}</a> on <a href="{{ url_for('stocks.stock_info', ticker=trade.stock.ticker) }}">{{ trade.stock.ticker }}</a></h5>
+                <p class="card-text">${{ trade.price }}</p>
+                <p class="card-text">{{ trade.quantity }} shares</p>
+                <p class="card-text"><small class="text-muted">{{ moment(trade.timestamp).fromNow() }}</small></p>
+            </div>
+        </div>
+    </div>
+        <div class="card-footer">
+        {% if current_user.is_administrator() %}
+            <a href="{{ url_for('trades.edit_trade', trade_id=trade.id) }}">
+                <span class="label label-danger">Edit [Admin]</span>
+            </a>
+        {% endif %}
+        <a href="{{ url_for('trades.trade', trade_id=trade.id) }}">
+            <span class="label label-danger">Permalink</span>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Greek Gang Terminal - Confirm your account{% endblock %}
+
+{% block page_header %}
+    Hello, {{ current_user.username }}!
+{% endblock %}
+{% block page_content %}
+<div class="col-md-4">
+    <h3>You have not confirmed your account yet.</h3>
+    <p>
+        Account confirmation is required to access this page.
+        Check your inbox for a confirmation email.
+    </p>
+    <p>
+        Don't see it?
+        <a href="{{ url_for('auth.resend_confirmation_email') }}">Click here</a>
+    </p>
+</div>
+{% endblock %}

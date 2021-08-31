@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% block title %}Greek Gang Terminal - {{ title }} {{ user.username }}{% endblock %}
+{% block page_header %}{{ title }} {{ user.username }}{% endblock %}
+{% block page_content %}
+    <p></p>
+    <table class="table table-hover followers" aria-label="{{ title }} {{ user.username }}">
+        <thead><tr><th scope="col">User</th><th scope="col">Since</th></tr></thead>
+        {% for follow in follows %}
+            {% if follow.user != user %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('.user_profile', username = follow.user.username) }}">
+                            <img class="rounded" src="{{ follow.user.gravatar(size=32) }}" alt="'User avatar">
+                            {{ follow.user.username }}
+                        </a>
+                    </td>
+                    <td>{{ moment(follow.timestamp).format('L') }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    {% if pagination %}
+        {{ render_pagination(pagination, endpoint='.index', prev='«', next='»', align='center') }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% block title %}Greek Gang Terminal - All Stocks{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+{% block profile_header %}
+    <div class="col-sm-9 right">
+        <h3>All Stocks Currently Available</h3>
+    </div>
+
+{% endblock %}
+{% block page_content %}
+    {% include 'stocks/_stocks_table.html' %}
+    {% if pagination %}
+        {{ render_pagination(pagination, endpoint='.view_all_stocks', prev='«', next='»', align='center', args={'':''}) }}
+    {% endif %}
+{% endblock %}

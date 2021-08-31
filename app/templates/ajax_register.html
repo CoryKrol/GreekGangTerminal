@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "bootstrap/form.html" import render_form %}
+{% block head %}
+    {{ super() }}
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
+
+{% endblock %}
+{% block title %}Greek Gang Terminal - {{ title }}{% endblock %}
+
+{% block page_header %}
+    {{ title }}
+{% endblock %}
+{% block page_content %}
+    <form id="register-form" method="POST">
+        {{ form.csrf_token }}
+        <div class="text-danger my-2" id="csrf_token-error">
+        </div>
+        <div class="form-group">
+            {{ form.username.label }}
+            {{ form.username(class='form-control') }}
+            <div id="username-error" class="invalid-feedback"></div>
+        </div>
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class='form-control') }}
+            <div id="email-error" class="invalid-feedback"></div>
+        </div>
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class='form-control') }}
+            <div id="password-error" class="invalid-feedback"></div>
+        </div>
+            <div class="form-group">
+            {{ form.password2.label }}
+            {{ form.password2(class='form-control') }}
+            <div id="password2-error" class="invalid-feedback"></div>
+        </div>
+        <button class="btn btn-primary">Signup</button>
+    </form>
+    <div id="success-message" style="display: none;"></div>
+    {{ render_static('js', 'js/signup.js') }}
+{% endblock %}

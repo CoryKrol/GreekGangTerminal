@@ -1,0 +1,1 @@
+User {{ user.username }} account created successfully.

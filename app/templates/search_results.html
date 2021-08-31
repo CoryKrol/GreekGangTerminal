@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% block title %}Greek Gang Terminal - Search Results{% endblock %}
+{% block page_header %}Search Results{% endblock %}
+{% block page_content %}
+    {% if stocks %}
+        {% include 'stocks/_stocks.html' %}
+    {% elif users %}
+        {% include 'users/_users.html' %}
+    {% endif %}
+
+    {% if pagination %}
+        {{ render_pagination(pagination, endpoint=endpoint, prev='«', next='»', align='center') }}
+    {% endif %}
+{% endblock %}
